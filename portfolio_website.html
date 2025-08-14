@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Programming - Arish Ahmad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #1e1e2f;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        section {
+            padding: 25px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #222;
+            margin-bottom: 15px;
+        }
+        p, li {
+            line-height: 1.7;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .topic {
+            margin-bottom: 20px;
+        }
+        .learn-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .learn-link:hover {
+            background-color: #004999;
+        }
+        footer {
+            background-color: #1e1e2f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="lang-title">Programming Language</h1>
+    <p>Detailed Learning and Professional Guide</p>
+</header>
+
+<section>
+    <h2>Overview</h2>
+    <p id="lang-description">The selected programming language details will appear here with professional guidance.</p>
+</section>
+
+<section>
+    <h2>Learning Topics</h2>
+    <div class="topic" id="topic1"></div>
+    <div class="topic" id="topic2"></div>
+    <div class="topic" id="topic3"></div>
+    <div class="topic" id="topic4"></div>
+    <div class="topic" id="topic5"></div>
+</section>
+
+<nav>
+    <a href="portfolio.html" class="learn-link">Back to Portfolio</a>
+</nav>
+
+<footer>
+    &copy; 2025 Arish Ahmad. All rights reserved.
+</footer>
+
+<script>
+    function loadLanguageContent(lang) {
+        const title = document.getElementById('lang-title');
+        const description = document.getElementById('lang-description');
+        const topic1 = document.getElementById('topic1');
+        const topic2 = document.getElementById('topic2');
+        const topic3 = document.getElementById('topic3');
+        const topic4 = document.getElementById('topic4');
+        const topic5 = document.getElementById('topic5');
+
+        const languages = {
+            c: {
+                title: 'C Programming',
+                description: 'C is a powerful, general-purpose programming language widely used for system programming, embedded systems, and efficient software development. It provides low-level memory access and forms the basis of many modern languages.',
+                topics: [
+                    'Syntax and Data Types: Variables, constants, keywords, operators, and data types.',
+                    'Control Structures: Conditional statements (if, switch) and loops (for, while, do-while).',
+                    'Functions: Defining functions, function calls, recursion, and scope of variables.',
+                    'Arrays and Pointers: Single and multi-dimensional arrays, pointer arithmetic, and memory management.',
+                    'File I/O and Advanced Concepts: Reading/writing files, structures, dynamic memory allocation, and best practices.'
+                ]
+            },
+            cpp: {
+                title: 'C++ Programming',
+                description: 'C++ extends C with object-oriented programming features. It is used for game development, system software, and high-performance applications. Supports classes, inheritance, polymorphism, and templates.',
+                topics: [
+                    'Syntax and Data Types: Variables, constants, operators, and C++ specific data structures.',
+                    'Object-Oriented Programming: Classes, objects, constructors/destructors, inheritance, and polymorphism.',
+                    'Templates and STL: Generic programming, Standard Template Library (vectors, lists, maps, algorithms).',
+                    'Exception Handling: try, catch, throw, and proper error management.',
+                    'File I/O and Best Practices: Reading/writing files, memory management, and writing professional, maintainable code.'
+                ]
+            },
+            java: {
+                title: 'Java Programming',
+                description: 'Java is a versatile, object-oriented programming language that is platform-independent. Used in web development, Android apps, and enterprise solutions. Java emphasizes security, portability, and maintainable code.',
+                topics: [
+                    'Syntax and Data Types: Variables, constants, data types, operators, and control structures.',
+                    'Object-Oriented Concepts: Classes, objects, inheritance, interfaces, and encapsulation.',
+                    'Exception Handling: Managing runtime errors using try, catch, finally, and custom exceptions.',
+                    'Collections Framework: Lists, sets, maps, and working with data structures efficiently.',
+                    'Multithreading and File I/O: Concurrent programming, thread management, reading/writing files, and best coding practices.'
+                ]
+            }
+        };
+
+        if(languages[lang]) {
+            title.innerText = languages[lang].title;
+            description.innerText = languages[lang].description;
+            topic1.innerText = languages[lang].topics[0];
+            topic2.innerText = languages[lang].topics[1];
+            topic3.innerText = languages[lang].topics[2];
+            topic4.innerText = languages[lang].topics[3];
+            topic5.innerText = languages[lang].topics[4];
+        } else {
+            title.innerText = 'Programming Language';
+            description.innerText = 'Please select a valid programming language from your portfolio.';
+            topic1.innerText = topic2.innerText = topic3.innerText = topic4.innerText = topic5.innerText = '';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const lang = params.get('lang');
+        loadLanguageContent(lang);
+    });
+</script>
+
+</body>
+</html>
